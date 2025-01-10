@@ -1,0 +1,207 @@
+main>header {
+    margin: auto;
+}
+
+/* Blocs de la page d'accueil */
+
+#landing-image {
+    width: 100%;
+    object-fit: cover;
+    height: 50vh;
+    image-rendering: pixelated;
+    max-height: 318px;
+}
+
+
+#landing-image.full{
+    max-height: 450px;
+    transition: max-height 2s cubic-bezier(0,.72,.14,.99);
+}
+
+#landing-logo {
+    position: absolute;
+    max-height: 110px; 
+    height: auto; 
+    left: 2.6rem; 
+    top: 2.8rem; 
+    z-index: 3; 
+}
+
+#landing-sorbonne {
+    position: absolute;
+    max-height: 100px; 
+    top: 3rem;
+    z-index: 2; 
+    right: -3.2vw;
+}
+
+h1#landing-title {
+    position: relative;
+    top: -3.5rem;
+    font-weight: 300;
+    font-size: 7rem;
+    margin: 0 0 0 calc(1rem + 2.5vw);
+    text-align: left;
+    line-height: 0.8;
+    text-shadow: var(--background-color) 0 0 4rem,
+        var(--background-color) 0 0 4rem,
+        var(--background-color) 0 0 4rem;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #ebe1db 5%, rgba(235, 225, 219, 0) 70%, transparent 70%);
+  z-index: 1; /* Pour que le dégradé soit au-dessus de l'image */
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 50vh; /* S'ajuste à la hauteur de l'image */
+  max-height: 200px; /* Correspond à l'image et au logo */
+  overflow: hidden; /* Empêche le dépassement du logo et du dégradé */
+}
+
+#landing-blocks-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 var(--min-margin);
+    gap: 2rem;
+}
+
+.landing-block {
+    flex: 1 1 30rem;
+    width: 100%;
+    max-width: 50rem;
+}
+
+.landing-block.text {
+    max-width: 40rem;
+}
+
+img.landing-block {
+    object-fit: cover;
+    margin: 0px;
+}
+
+/* Calendrier */
+
+.react-calendar {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.react-calendar a {
+    display: block;
+    box-shadow: none !important;
+    padding: 0.2rem 0.1rem;
+    overflow: hidden;
+}
+
+.react-calendar__navigation {
+    margin: 0rem 0rem 1rem 0rem;
+    width: fit-content;
+    background-color: var(--dimmed-background);
+}
+
+.react-calendar__navigation__arrow,
+.react-calendar__navigation__label {
+    padding: 0.3rem 0.7rem;
+    margin: 0rem;
+    border: none;
+    font-size: var(--cal-font-size);
+}
+
+.react-calendar__navigation__arrow {
+    font-family: "Inter";
+    cursor: pointer;
+    background: var(--light-background);
+    color: var(--light-background);
+    font-size: 0.1rem;
+    border-radius: var(--small-border-radius);
+}
+
+.react-calendar__navigation__prev-button::after {
+    font-size: var(--cal-font-size);
+    content: "\002190";
+    color: var(--text-color) !important;
+}
+
+.react-calendar__navigation__next-button::after {
+    font-size: var(--cal-font-size);
+    content: "\002192";
+    color: var(--text-color) !important;
+}
+
+.react-calendar__navigation__label {
+    background: var(--dimmed-background);
+    color: var(--text-color);
+    width: 12rem;
+}
+
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+    display: none;
+}
+
+.react-calendar__viewContainer {
+    box-sizing: border-box;
+    border: var(--half-hr);
+}
+
+.react-calendar__month-view__weekdays,
+.react-calendar__month-view__days {
+    width: 100%;
+    display: flex;
+}
+
+.react-calendar__month-view__weekdays__weekday,
+.react-calendar__month-view__days__day {
+    color: var(--text-color);
+    border: var(--half-hr);
+    padding: 0.3rem 0.4rem;
+    font-size: var(--cal-font-size);
+    text-align: center;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+    background-color: var(--light-background);
+    flex: 1 0 0 !important;
+}
+
+.react-calendar__month-view__days__day {
+    background: var(--background-color);
+    flex: 0 0 calc(100 / 7) !important;
+    min-height: 5rem;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+    background: var(--dimmed-background) !important;
+}
+
+.react-calendar__tile--now abbr {
+    background-color: rgb(var(--text), 0.7);
+    border-radius: 100rem;
+    color: var(--background-color);
+    width: min-content;
+    padding: 0.4rem 0.7rem;
+    margin: 0.1rem auto 0.3rem auto;
+}
+
+abbr {
+    display: block;
+    margin-bottom: 0.2rem;
+    text-decoration: none;
+}
+
+/* Derniers posts */
+
+#last-posts {
+    display: block;
+    max-width: var(--max-cards-width);
+    margin: 10rem max(calc((100vw - var(--max-cards-width)) / 2 - 2rem), var(--min-margin)) 1.5rem max(calc((100vw - var(--max-cards-width)) / 2 - 2rem), var(--min-margin));
+}

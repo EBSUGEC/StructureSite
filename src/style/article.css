@@ -1,0 +1,424 @@
+/* Article */
+.body {
+    --random-rotate :0deg
+}
+#article{
+    text-align: justify;
+}
+
+
+#article-header{
+    background-image: url("/static/ceres-dither-1000-serpentine-a59d6fe6968543d70168ef4ad3ea84f3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: calc(36% + 1vw);
+    text-align: center;
+}
+
+#article-container {
+    max-width: var(--art-width);
+    margin-inline: auto;
+    padding: 0rem var(--min-margin);
+}
+
+#toc-container+#article-container {
+    float: left;
+    margin-top: 0;
+    margin-right: calc(var(--ext-margin) + var(--toc-width) + 2 * var(--toc-padding) + var(--min-margin));
+    margin-bottom: 0;
+    margin-left: var(--ext-margin);
+}
+
+#article-container>header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#article-meta {
+    /* color: var(--disabled-color); */
+    color: white;
+    text-shadow: 3px 3px black;
+}
+
+audio {
+    width: 100%;
+}
+
+/* Bouton d'impression */
+
+button.print {
+    margin: var(--meta-margin) auto 0rem auto;
+}
+
+.overlay {
+    backdrop-filter: hue-rotate(var(--random-rotate)) saturate(45%);
+    padding-top: 2em;
+    min-height: 15rem;
+}
+
+/* Table des matières */
+
+#toc-container {
+    position: fixed;
+    overflow: hidden;
+    right: var(--ext-margin);
+    width: var(--toc-width);
+    margin-top: 10rem;
+    font-size: 0.9rem;
+    background-color: var(--background-color);
+    border: var(--hr);
+    border-radius: var(--small-border-radius);
+    padding: var(--toc-padding);
+    list-style: none;
+    color: var(--disabled-color);
+    z-index: 1;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.31); 
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.31);
+}
+
+#toc-container>nav::before,
+#toc-container>nav::after {
+    content: '';
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    pointer-events: none;
+    left: 0rem;
+    background: linear-gradient(0deg, var(--background-color) 0%, var(--background-color) 5%, transparent);
+}
+
+#toc-container>nav::before {
+    height: 3rem;
+    top: calc(var(--toc-height) - var(--toc-padding) * 2);
+}
+
+#toc-container>nav::after {
+    height: 0.5rem;
+    top: var(--toc-padding);
+    transform: rotate(180deg);
+}
+
+#toc-container>nav {
+    max-height: var(--toc-height);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#toc-container>nav::-webkit-scrollbar {
+    display: none;
+}
+
+#toc-container>nav>ul {
+    margin: 0rem 0rem 1.2rem 0rem;
+}
+
+#toc-container li,
+#toc-container li p {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#toc-container p {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+
+#toc-container li {
+    margin-top: 0.5rem;
+    margin-bottom: 0rem;
+}
+
+#toc-container>nav>ul>li {
+    margin-left: 0rem;
+}
+
+#toc-container a {
+    transition: 0.1s;
+    color: var(--disabled-color);
+    text-decoration-color: var(--hr-color);
+}
+
+#toc-container a:hover {
+    color: var(--text-color);
+    text-decoration-color: var(--text-color);
+}
+
+/* Tags */
+
+#tags-container {
+    /* border-top: var(--hr);
+    border-bottom: var(--hr); */
+    padding: 0.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    align-content: center;
+    width: 50%;
+    margin: var(--meta-margin) auto 0rem auto;
+}
+
+/* #tags-container:before {
+    content: "Tags :"
+} */
+
+/* Images */
+
+img {
+    max-width: 92%;
+    max-height: 45rem;
+    display: block;
+    margin: 1rem auto 1rem auto;
+}
+
+/* Images */
+
+img {
+    max-width: 90%;
+    max-height: 70vh;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: var(--small-border-radius);
+}
+
+img:hover {
+    z-index: 8 !important;
+}
+
+img[alt="big"] {
+    /* max-width: min(130%, calc(100vw - 2 * var(--min-margin) - 2rem)); */
+    /* left: -15%; */
+    
+    position: relative;
+    max-width: 100%;
+    max-height: 90vh;
+}
+
+img[alt="small"] {
+    max-width: 60%;
+    max-height: 60vh;
+}
+
+img[alt="verysmall"] {
+    max-width: 40%;
+    max-height: 40vh;
+}
+
+/* Notes de bas de page */
+
+a.footnote-ref,
+a.footnote-backref:after,
+a.footnote-backref {
+    font-weight: 500;
+    padding: 0.15rem;
+    margin: 0.1rem;
+    border-radius: 1rem;
+    background-color: var(--to-hover-background);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+sup {
+    vertical-align: top;
+}
+
+a.footnote-ref {
+    position: relative;
+    font-size: 0.8rem;
+}
+
+a.footnote-backref {
+    visibility: hidden;
+    display: inline-block;
+    font-size: 0.0001rem;
+}
+
+a.footnote-backref:after {
+    font-size: 0.8rem;
+    content: "↑";
+    visibility: visible;
+    font-family: "Inter";
+}
+
+a.footnote-ref:hover,
+a.footnote-backref:hover:after {
+    background-color: var(--hovered-background);
+}
+
+/* Section de notes de bas de page, voir la mise en forme du H2 */
+
+.footnotes hr {
+    display: none;
+}
+
+.footnotes::before {
+    content: "Notes";
+    display: block;
+}
+
+details{
+    color: white;
+    border: solid var(--main-border-color) 0.5px;
+    border-radius: 5px;
+    padding: 0.5rem;   
+}
+
+details:hover{
+    cursor: pointer;
+    color: var(--main-color);
+    * {
+        cursor:default;
+        color: white;
+    };
+    summary{
+        cursor: pointer;
+        color: var(--main-color)
+    }
+}
+
+
+/* Breakpoints et print */
+
+@media print {
+    :root {
+        --main: 0, 93, 255 !important;
+        --text-num: 30 !important;
+        --bg-num: 255 !important;
+    }
+
+    html {
+        font-size: 12px;
+    }
+
+    #header,
+    footer,
+    audio,
+    #tags-panel-container,
+    #toc-container,
+    #header-div-h,
+    .button {
+        display: none;
+    }
+
+    #page-container {
+        margin: 0rem
+    }
+
+    #article-container {
+        max-width: calc(100% - 4 * var(--border-width));
+        width: calc(100% - 4 * var(--border-width));
+        float: none !important;
+        margin: 0rem !important;
+        padding: 0rem !important;
+    }
+
+    aside,
+    p>img {
+        display: inline-block;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    aside {
+        width: 85%;
+    }
+
+    img {
+        border: var(--small-border-width) solid var(--hr-color);
+        max-width: 80%;
+        max-height: 28vh;
+        /* For an unknown reason, the rules below only work for images if it is repeated */
+        display: inline-block;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    table {
+        max-width: calc(100% - 4 * var(--border-width));
+    }
+
+    img[alt="big"] {
+        max-width: 100%;
+        max-height: 33vh;
+    }
+
+    img[alt="small"] {
+        max-width: 60%;
+        max-height: 23vh;
+    }
+
+    img[alt="verysmall"] {
+        max-width: 40%;
+        max-height: 15vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        width: 100%;
+        /* display: inline-block;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        position: relative;
+        break-after: avoid;
+        page-break-after: avoid; */
+    }
+
+    a {
+        text-decoration-color: var(--main-border-color) !important;
+        text-decoration-thickness: 0.05rem !important;
+    }
+
+    table thead {
+        /* Propriétés pas encore supportées sur Firefox */
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+}
+
+@media (max-width: 40rem) {
+    table td {
+        word-break: break-all;
+    }
+}
+
+@media(max-width: 90rem),
+only screen and (hover: none) and (pointer: coarse){
+    #article-container{
+        margin-left: 5vw
+    }
+}
+
+@media (max-width: 70rem),
+only screen and (hover: none) and (pointer: coarse) {
+
+    #toc-container {
+        display: none;
+    }
+
+    #toc-container+#article-container {
+        position: static;
+        right: auto;
+        margin-inline: max(calc(50% - var(--art-width) / 2), var(--min-margin));
+        margin-left: 0;
+    }
+
+    #article-header{
+        background-color: var(--background-color);
+        background-image: none;
+    }
+}

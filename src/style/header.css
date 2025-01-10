@@ -1,0 +1,84 @@
+#header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.1rem;
+    align-items: center;
+    align-content: center;
+    padding: 1.8rem var(--min-margin) 0.5rem var(--min-margin);
+    background-color: var(--background-color);
+    z-index: 1;
+}
+
+#header * {
+    margin-top: -1.5rem;
+}
+
+#header a {
+    display: block;
+    color: var(--main-color);
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--main), 0);
+    white-space: nowrap;
+}
+
+#header a:hover {
+    color: var(--main-color);
+    text-decoration: underline;
+}
+
+#header-logo {
+    margin-right: 3%;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+.header-link {
+    font-weight: 500;
+    font-size: 100%;
+}
+
+.header-div-v {
+    margin: 0;
+    height: 1.4rem;
+    border-left: var(--hr);
+}
+
+#header-div-h {
+    margin: 0;
+}
+
+#header svg.color-mode {
+    margin: 0.2rem 0rem 0rem 0rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    color: var(--main-color);
+    fill: currentColor;
+}
+
+#header .discrete-button:focus {
+    outline: none;
+    border: none !important;
+}
+
+button.contact {
+    overflow: hidden;
+}
+
+button.contact:after {
+    transition: var(--transition);
+    transition-delay: 0.7s;
+    color: transparent;
+    content: " : lettres-ceres@sorbonne-universite.fr";
+    visibility: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: 0rem;
+}
+
+button.contact:hover:after {
+    transition-delay: 0s;
+    color: inherit;
+    width: 17.5rem;
+    visibility: visible;
+}

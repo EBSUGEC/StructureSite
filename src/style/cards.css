@@ -1,0 +1,31 @@
+/* Texte d'introduction */
+
+#cards-introduction {
+    margin: auto;
+    max-width: var(--art-width);
+    padding: 0 var(--min-margin) 3rem var(--min-margin);
+}
+
+/* Petites cartes */
+
+.small-card {
+    position: relative;
+    height: 22rem;
+    flex: 1 1 15rem;
+    max-width: 22rem;
+    padding: 0 var(--card-padding) var(--card-padding) var(--card-padding);
+    border: var(--hr);
+    border-radius: var(--medium-border-radius);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.small-card .image-card {
+    border-radius: calc(var(--medium-border-radius) - var(--border-width)) calc(var(--medium-border-radius) - var(--border-width)) 0 0;
+    min-width: calc(100% + 2 * var(--card-padding) + 2 * var(--border-width));
+    margin-left: calc(0rem - var(--card-padding) - var(--border-width));
+    margin-top: calc(0rem - var(--border-width));
+    margin-bottom: var(--in-card-margin);
+    height: 11rem;
+    transition: 0.1s ease-in-out !important;
+}
