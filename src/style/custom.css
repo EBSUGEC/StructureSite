@@ -1,0 +1,11 @@
+:root {
+    /* Couleur de mise en exergue */
+    /* --test: rgb(132, 177, 255); */
+    --main: 255, 167, 0;
+
+    /* --light-main-color: rgb(0, 93, 255); */
+
+    /* Niveaux de gris des couleurs neutres */
+    --text-num: 30;
+    --bg-num: 255;
+}

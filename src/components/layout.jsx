@@ -5,6 +5,7 @@ import '../style/footer.css'
 import '../style/general.css'
 import '../style/header.css'
 import '../style/navtag.css'
+import '../style/custom.css'
 
 // import { Link } from 'gatsby'
 

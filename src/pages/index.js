@@ -7,7 +7,7 @@ import { filterNodes, isDateOnCallendar } from "../helpers"
 import Planet from '../images/baniere.jpg'
 
 import LogoSorbonne from '../images/lettres-logo-white.svg'
-import LogoCeres from '../images/LOGO_CERES_SOMBRE-2.png'
+// import LogoCeres from '../images/LOGO_CERES_SOMBRE-2.png'
 
 import "../style/accueil.css"
 
@@ -51,23 +51,21 @@ const HomeHeader = ({ nodes }) => {
 
         <div id="landing-blocks-container">
             <div className="landing-block text">
-                <h2>Centre d’expérimentation en méthodes numériques pour les recherches en Sciences Humaines et Sociales</h2>
+                <h2>Template de site académique de la Fac de Lettres</h2>
                 <p>
-                    <a href="https://ceres.sorbonne-universite.fr/EnglishVersion">[English here]</a>
+                    Ce site est un modèle pour les sites de laboratoire de <a href="https://lettres.sorbonne-universite.fr/">Faculté des Lettres de Sorbonne Université</a>.
+                     Il a pour vocation d'être un exemple modifiable afin de mettre en place aisément des sites web permettant de publier billets de blogs et mettre en avant des événements liés à l'activité d'un laboratoire.
                 </p>
                 <p>
-                    Le Centre d’expérimentation en méthodes numériques pour les recherches en Sciences Humaines et Sociales est une unité de service de la <a href="https://lettres.sorbonne-universite.fr/">Faculté des Lettres de Sorbonne Université</a>, créée en février 2021, dont la mission principale est d’accompagner les chercheur·ses et doctorant·es en SHS souhaitant recourir à des méthodes numériques et à des outils informatiques.
-                </p>
-                <p>
-                    Les actions de CERES sont organisées autour de trois axes principaux :
+                    Fonctionnalités principales
                     <ul>
-                        <li> les réseaux sociaux numériques </li>
-                        <li> les sources patrimoniales numérisées </li>
-                        <li> le déploiement d’une infrastructure transversale de gestion des corpus et des données analytiques associées </li>
+                        <li> Publier du contenu à partir de simples fichiers markdown </li>
+                        <li> Mise en avant d'événements </li>
+                        <li> Gestion facilitée de membres </li>
                     </ul>
                 </p>
                 <p>
-                    CERES offre un <a href="/ateliers">accompagnement technique et méthodologique</a> dans la prise en main d’outils informatiques disponibles et œuvre au déploiement d’<a href="/projets">outils informatiques</a> utiles à la communauté des chercheur·ses de la Faculté des Lettres. L’unité de service conduit par ailleurs une réflexion sur le statut épistémologique de ces outils et méthodes dans la recherche en SHS, mettant en avant le caractère central de l’activité interprétative du·e la chercheur·se face aux outils informatiques. Plus largement, il s’agit de contribuer à l’émergence de nouvelles pratiques de recherche en SHS en milieu numérique, avec l'appui d’une <a href="/membres">équipe interdisciplinaire</a>.
+                    Ce template a été créé par les ingénieurs de <a href="ceres.sorbonne-universite.fr">l'unité de service du CERES</a>.
                 </p>
             </div>
             <div className="landing-block">
