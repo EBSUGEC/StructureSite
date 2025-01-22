@@ -4,6 +4,7 @@ import Calendar from 'react-calendar'
 import { Card } from "../components/card"
 import Layout from '../components/layout'
 import { filterNodes, isDateOnCallendar } from "../helpers"
+import Introduction from '../components/introduction'
 import Planet from '../images/baniere.jpg'
 
 import LogoSorbonne from '../images/lettres-logo-white.svg'
@@ -50,26 +51,9 @@ const HomeHeader = ({ nodes }) => {
         </div>
 
         <div id="landing-blocks-container">
-            <div className="landing-block text">
-                <h2>Template de site académique de la Fac de Lettres</h2>
-                <p>
-                    Ce site est un modèle pour les sites de laboratoire de <a href="https://lettres.sorbonne-universite.fr/">Faculté des Lettres de Sorbonne Université</a>.
-                     Il a pour vocation d'être un exemple modifiable afin de mettre en place aisément des sites web permettant de publier billets de blogs et mettre en avant des événements liés à l'activité d'un laboratoire.
-                </p>
-                <p>
-                    Fonctionnalités principales
-                    <ul>
-                        <li> Publier du contenu à partir de simples fichiers markdown </li>
-                        <li> Mise en avant d'événements </li>
-                        <li> Gestion facilitée de membres </li>
-                    </ul>
-                </p>
-                <p>
-                    Ce template a été créé par les ingénieurs de <a href="ceres.sorbonne-universite.fr">l'unité de service du CERES</a>.
-                </p>
-            </div>
+            <Introduction />
             <div className="landing-block">
-                <h3>Évènements à venir</h3>
+                <h3>Événements à venir</h3>
                 <Calendar locale="fr-FR" maxDetail="month" minDetail="month" className="landing-block" tileContent={({ date }) => {
                     const events = nodes.filter(node => node.frontmatter.event)
                     for (const event of events) {

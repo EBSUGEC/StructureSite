@@ -58,10 +58,6 @@ export const query = graphql`
     site {
       siteMetadata {
         title,
-        authors {
-          id,
-          name
-        }
       }
     }
     markdownRemark(fields: {slug: {eq: $slug}}) {
