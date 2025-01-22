@@ -14,9 +14,9 @@ const BlogPost = ({ data, children }) => {
     const date = data.markdownRemark.fields.date
     const { author, title, tags, abstract, sound } = data.markdownRemark.frontmatter
     const authorName = author ? data.site.siteMetadata.authors.find(el => el.id === author).name : ""
-    React.useEffect(() => {
-      document.querySelector('body').style.setProperty('--random-rotate', `${getRandomIntInclusive(20, 340)}deg`) 
-    }, []);
+    // React.useEffect(() => {
+    //   document.querySelector('body').style.setProperty('--random-rotate', `${getRandomIntInclusive(20, 340)}deg`) 
+    // }, []);
     return (
         <Layout>
             <main>

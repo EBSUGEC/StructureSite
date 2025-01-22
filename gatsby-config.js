@@ -76,14 +76,7 @@ let config = {
         "path": "./src/images/"
       },
       __key: "images"
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "outils",
-        "path": path.join(DIR, '_outils')
-      },
-    },
+    }
     // {
     //   resolve: `gatsby-transformer-csv`,
     // }

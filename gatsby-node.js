@@ -6,46 +6,6 @@ const { result } = require('lodash');
 // const thesaurus = require(`./src/data/thesaurus.json`)
 const dict_prettyNames = {};
 
-// ON CREE NOUS MEME DES NODES A PARTIR D'UN CSV POUR LE TABLEAU DES OUTILS
-exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
-  const { createNode } = actions;
-
-  // Chemin vers le fichier CSV
-  const csvFilePath = path.join('./src/data/_outils/outils_numeriques.csv');
-
-  // Lire et parser le fichier CSV
-  const nodes = [];
-
-  await new Promise((resolve, reject) => {
-    fs.createReadStream(csvFilePath)
-      .pipe(csv())
-      .on('data', (row) => {
-        const nodeContent = JSON.stringify(row);
-        const slug = row.nom.split(' ').join('-').toLowerCase()
-        const nodeMeta = {
-          id: createNodeId(`csv-node-${row.nom}`),
-          parent: null,
-          children: [],
-          internal: {
-            type: 'CsvNode',
-            mediaType: 'text/csv',
-            content: nodeContent,
-            contentDigest: createContentDigest(row),
-          },
-        };
-
-        const node = { ...row, ...nodeMeta, slug };
-        nodes.push(node);
-      })
-      .on('end', () => {
-        console.log(nodes)
-        nodes.forEach(node => createNode(node));
-        resolve();
-      })
-      .on('error', (error) => reject(error));
-  });
-};
-
 // ON ENRICHIE LES NODES MARKDOWN AVEC DES FIELDS
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -81,7 +41,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
 
     const files = fs.readdirSync(path.dirname(node.fileAbsolutePath)).filter(el => el !== 'index.md')
-    const images = files.filter(el => el.endsWith('.png') || el.endsWith('.jpeg') || el.endsWith('.jpg'))
+    const images = files.filter(el => el.endsWith('.png') || el.endsWith('.jpeg') || el.endsWith('.jpg') || el.endsWith('.webp'))
     // const sounds = files.filter(el => el.endsWith('.mp3') || el.endsWith('.wav') || el.endsWith('.ogg'))
     
     createNodeField({
@@ -191,31 +151,6 @@ exports.createPages = async ({ graphql, actions }) => {
       })
 
     }
-  })
-
-  // now create tools pages
-  const toolsQuery = await graphql(
-    `
-    {
-      allCsvNode {
-      nodes {
-        nom,
-        slug
-      }
-    }
-  }`)
-  
-  toolsQuery.data.allCsvNode.nodes.forEach(node => {
-    const slug = node.slug
-    createPage({
-      path: `/outils/${slug}`,
-      component: path.resolve(`./src/templates/tool.jsx`),
-      context: {
-        slug,
-        // previous,
-        // next,
-      },
-    })
   })
 }
 
