@@ -20,7 +20,7 @@ let config = {
     "gatsby-plugin-sitemap", {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        "icon": "src/images/icon.svg"
+        "icon": "src/images/" + siteConfig['logo']
       }
     },
     "gatsby-plugin-sharp",
