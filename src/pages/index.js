@@ -4,7 +4,7 @@ import Calendar from 'react-calendar'
 import { Card } from "../components/card"
 import Layout from '../components/layout'
 import { filterNodes, isDateOnCallendar } from "../helpers"
-import Introduction from '../components/introduction'
+import { Introduction } from '../components/introduction'
 import Planet from '../images/baniere.jpg'
 
 import LogoSorbonne from '../images/lettres-logo-white.svg'
