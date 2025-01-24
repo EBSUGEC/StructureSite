@@ -4,11 +4,11 @@ import Calendar from 'react-calendar'
 import { Card } from "../components/card"
 import Layout from '../components/layout'
 import { filterNodes, isDateOnCallendar } from "../helpers"
-import { Introduction } from '../components/introduction'
+import { Introduction } from '../components/customisation'
 import Planet from '../images/baniere.jpg'
 
 import LogoSorbonne from '../images/lettres-logo-white.svg'
-// import LogoCeres from '../images/LOGO_CERES_SOMBRE-2.png'
+import LogoLabo from '../images/LogoLabo.png'
 
 import "../style/accueil.css"
 
@@ -46,7 +46,7 @@ const HomeHeader = ({ nodes }) => {
         <div className="image-container">
             <img id="landing-image" src={Planet} style={{ maxWidth: "100%", margin: 0 }} className={imageClass} />
             {/* <div class="gradient-overlay"></div> */}
-            {/* <img id="landing-logo" src={LogoCeres} style={{ maxWidth: "100%", margin: 0 }} /> */}
+            <img id="landing-logo" src={LogoLabo} style={{ maxWidth: "100%", margin: 0 }} />
             <img id="landing-sorbonne" src={LogoSorbonne} style={{ maxWidth: "100%", margin: 0, height: "194px", width: "500px" }} />
         </div>
 
@@ -59,11 +59,11 @@ const HomeHeader = ({ nodes }) => {
                     for (const event of events) {
                         if (isDateOnCallendar({ calendarDate: date, eventDate: event.fields.dateRaw })) {
                             const title = event.frontmatter.title.length > 25 ? event.frontmatter.title.slice(0, 23) + "..." : event.frontmatter.title
-                            return <Link to={`/${event.fields.collection}/` + event.fields.slug}>{title}</Link>
+                            return <Link to={`/${event.frontmatter.prettyName ? event.frontmatter.prettyName : event.frontmatter.uuid}/` }>{title}</Link>
                         }
                     }
                     return null
-                }
+                }   
                 } />
                 {/* <img className="landing-block" src={Planet} /> */}
             </div>
