@@ -8,14 +8,14 @@ main>header {
     width: 100%;
     object-fit: cover;
     height: 50vh;
-    image-rendering: pixelated;
+    /*image-rendering: pixelated;*/
     max-height: 318px;
 }
 
 
 #landing-image.full{
     max-height: 450px;
-    transition: max-height 2s cubic-bezier(0,.72,.14,.99);
+    /*transition: max-height 2s cubic-bezier(0,.72,.14,.99);*/
 }
 
 #landing-logo {
