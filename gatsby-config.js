@@ -36,6 +36,7 @@ let config = {
       { id: `MileneLeGoff`, name: `Milene Le Goff` },
       { id: `AuroreTurbiau`, name: `Aurore Turbiau` },
       { id: `ZoePoliJulietteZanetta`, name: `Zoé Poli & Juliette Zanetta` }
+      { id: `VincentBollenot`, name: `Vincent Bollenot` }
     ],
     pages: []
   },
