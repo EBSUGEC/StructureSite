@@ -1,9 +1,9 @@
 {
-  "name": "ceres-www",
+  "name": "gec-www",
   "version": "1.0.0",
   "private": true,
-  "description": "ceres-www",
-  "author": "Thomas Bottini",
+  "description": "gec-www",
+  "author": "Ceres-philomel",
   "keywords": [
     "gatsby"
   ],
