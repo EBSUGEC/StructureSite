@@ -11,7 +11,6 @@ let config = {
   siteMetadata: {
     ...siteConfig,
     authors: [
-      { id: `ph`, name: `La rédaction` },
       { id: `IreneGimenez`, name: `Irène Gimenez` },
       { id: `HetaRundgren`, name: `Heta Rundgren` },
       { id: `NassiraHedjerassi`, name: `Nassira Hedjerassi` },
