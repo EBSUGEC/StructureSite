@@ -35,7 +35,7 @@ let config = {
       { id: `BlanchePlaquevent`, name: `Blanche Plaquevent` },
       { id: `MileneLeGoff`, name: `Milene Le Goff` },
       { id: `AuroreTurbiau`, name: `Aurore Turbiau` },
-      { id: `ZoePoliJulietteZanetta`, name: `Zoé Poli & Juliette Zanetta` }
+      { id: `ZoePoliJulietteZanetta`, name: `Zoé Poli & Juliette Zanetta` },
       { id: `VincentBollenot`, name: `Vincent Bollenot` }
     ],
     pages: []
