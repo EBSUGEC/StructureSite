@@ -7,7 +7,7 @@
     width: 20rem;
     height: calc(100vh);
     transition: 0.1s;
-    background: var(--main-color);
+    background: rgb(43,81,76);
     border-right: var(--hr);
     z-index: 4;
     box-shadow: 0 0 2rem rgb(var(--background), 0.6);

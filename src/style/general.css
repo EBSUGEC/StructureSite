@@ -8,7 +8,7 @@
 :root {
     /* Couleur de mise en exergue */
     /* --test: rgb(132, 177, 255); */
-    --main: 255, 167, 0;
+    --main: rgb(79, 65, 147);
 
     /* --light-main-color: rgb(0, 93, 255); */
 
@@ -18,9 +18,9 @@
 
     /* Couleurs de base */
     --text: var(--text-num), var(--text-num), var(--text-num);
-    --main-color: rgb(var(--main));
+    --main-color: rgb(79, 65, 147);
     --text-color: rgb(var(--text), 0.9);
-    --background-color: rgb(var(--bg-num), var(--bg-num), var(--bg-num));
+    --background-color: rgb(249,246,227);
 
     /* Variantes des couleurs neutres
         Plus le coefficient à la fin est bas, plus la couleur est distincte du fond.
@@ -287,7 +287,7 @@ a:not([href^="/"]) {
     text-decoration: underline;
     text-underline-offset: 0.25em;
     text-decoration-thickness: 0.1em;
-    text-decoration-color: rgb(var(--main), 0.4);
+    text-decoration-color: rgb(79,65,147, 0.4);
     text-wrap: wrap;
 }
 
@@ -341,7 +341,7 @@ a:not([class]):not([id])[href^="/"]:hover {
     text-align: center;
     color: var(--main-color);
     font-weight: 400;
-    border: var(--small-border-width) solid var(--main-border-color);
+    border: var(--small-border-width) solid rgb(79, 65, 147);
     background-color: var(--background-color);
 }
 

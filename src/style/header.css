@@ -16,14 +16,14 @@
 
 #header a {
     display: block;
-    color: var(--main-color);
+    color: rgb(79,65,147);
     text-decoration: underline;
     text-decoration-color: rgb(var(--main), 0);
     white-space: nowrap;
 }
 
 #header a:hover {
-    color: var(--main-color);
+    color: rgb(43,81,76);
     text-decoration: underline;
 }
 
@@ -69,7 +69,7 @@ button.contact:after {
     transition: var(--transition);
     transition-delay: 0.7s;
     color: transparent;
-    content: " : lettres-ceres@sorbonne-universite.fr";
+    content: " : genre-en-cours@sorbonne-universite.fr";
     visibility: hidden;
     white-space: nowrap;
     display: inline-block;
