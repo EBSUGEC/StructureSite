@@ -27,7 +27,7 @@ const BlogPost = ({ data, children }) => {
                     <header id="article-header">
                         <div className="overlay"> 
                           <h1>{title}</h1>
-                          {author && date && (<span id="article-meta">Publié par {authorName} le {date}</span>)}
+                          {author && date && (<span id="article-meta">Publié par {authorName} le {date}</span>) ? authorName !== "La rédaction" : ("")}
                           <button className="button print" onClick={() => { window.print(); }}>&darr; Enregistrer au format pdf</button>
                           {tags && (<div id="tags-container">
                               {tags ? tags.map((el, i) => <a className="tag" key={i} >{el}</a>) : ''}
