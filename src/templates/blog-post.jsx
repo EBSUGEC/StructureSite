@@ -13,7 +13,8 @@ function getRandomIntInclusive(min, max) {
 const BlogPost = ({ data, children }) => {
     const date = data.markdownRemark.fields.date
     const { author, title, tags, abstract, sound } = data.markdownRemark.frontmatter
-    const authorName = author ? data.site.siteMetadata.authors.filter(el => author.includes(el.id)).map(el => el.name).join(' & ') : ""
+    console.log(author)
+    const authorName = (author && author.id !== "unk") ? data.site.siteMetadata.authors.filter(el => author.includes(el.id)).map(el => el.name).join(' & ') : ""
     // React.useEffect(() => {
     //   document.querySelector('body').style.setProperty('--random-rotate', `${getRandomIntInclusive(20, 340)}deg`) 
     // }, []);
@@ -27,7 +28,7 @@ const BlogPost = ({ data, children }) => {
                     <header id="article-header">
                         <div className="overlay"> 
                           <h1>{title}</h1>
-                          {author && date && (<span id="article-meta">Publié par {authorName} le {date}</span>) ? authorName !== "La rédaction" : ("")}
+                          {author && date && (<span id="article-meta">Publié par {authorName} le {date}</span>)}
                           <button className="button print" onClick={() => { window.print(); }}>&darr; Enregistrer au format pdf</button>
                           {tags && (<div id="tags-container">
                               {tags ? tags.map((el, i) => <a className="tag" key={i} >{el}</a>) : ''}
