@@ -37,8 +37,7 @@
 
 #article-meta {
     /* color: var(--disabled-color); */
-    color: white;
-    text-shadow: 3px 3px black;
+    color: rgb(43,81,76);
 }
 
 audio {
