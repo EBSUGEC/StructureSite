@@ -17,6 +17,8 @@ let config = {
       { id: `CharlotteVampo`, name: `Charlotte Vampo` },
       { id: `SophieAlbert`, name: `Sophie Albert` },
       { id: `CeliaPosta`, name: `Célia Posta` },
+      { id: `SarahSagueton`, name: `Sarah Sagueton` },
+      { id: `JudithGourmelin`, name: `Judith Gourmelin` },
       { id: `LauraPeaud`, name: `Laura Péaud` },
       { id: `VirginieJulliard`, name: `Virginie Julliard` },
       { id: `ClaireLiseGaillard`, name: `Claire-Lise Gaillard` },
