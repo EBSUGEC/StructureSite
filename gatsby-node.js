@@ -4,7 +4,6 @@ const fs = require('fs')
 const csv = require('csv-parser');
 const { result } = require('lodash');
 // const thesaurus = require(`./src/data/thesaurus.json`)
-const dict_prettyNames = {};
 
 // ON ENRICHIE LES NODES MARKDOWN AVEC DES FIELDS
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -53,6 +52,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
+  const dict_prettyNames = {}
   const { createPage, createRedirect } = actions
 
   ////////////////////////////////////////////////////////////////////////////////
