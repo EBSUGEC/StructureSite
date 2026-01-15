@@ -7,7 +7,7 @@ import "../style/accueil.css"
 import "../style/cards.css"
 
 const CardsLayout = ({ data }) => {
-    const nodes = data.allMarkdownRemark.nodes
+    const nodes = data.allMarkdownRemark.nodes.filter(n => !n.fields.slug.startsWith('_'))
     return (
         <Layout nodes={nodes}>
             {/* petite astuce pour passer une fonction qui rend le composant actuel au layout pour que le layout puisse passer les paramètres nécessaires au filtrage*/}
