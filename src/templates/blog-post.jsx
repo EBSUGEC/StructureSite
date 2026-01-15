@@ -1,6 +1,7 @@
 import { Link, graphql } from "gatsby"
 import * as React from 'react'
 import Layout from '../components/layout'
+import Markdown from 'react-markdown'
 import '../style/article.css'
 
 
@@ -38,7 +39,7 @@ const BlogPost = ({ data, children }) => {
                     </header>
                 <div id="article-container">
                     <article id="article">
-                        {abstract ? <aside><p>{abstract}</p></aside> : ''}
+                        {abstract ? <aside><p><Markdown>{abstract}</Markdown></p></aside> : ''}
                         {
                             sound && (
                                 <audio controls>

@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as React from 'react'
 import { Tag } from "./layout"
+import Markdown from 'react-markdown'
+
 
 
 export const Card = ({ postData, toggleTag, selectedTags }) => {
@@ -21,7 +23,7 @@ export const Card = ({ postData, toggleTag, selectedTags }) => {
                 {tags ? tags.map(t => <Tag tagName={t} selectedTags={selectedTags} toggleTag={toggleTag} />) : ""}
             </div>)}
             <p className="text-sample">
-                {content}
+                <Markdown>{content}</Markdown>
             </p>
         </div>
     )
