@@ -10,7 +10,8 @@
     background: rgb(43,81,76);
     /* border-right: var(--hr); */
     z-index: 4;
-    box-shadow: 0 0 2rem rgb(var(--background), 0.6);
+    box-shadow: rgb(30, 60, 55) 2px 0px 0px 2px;
+    -webkit-box-shadow: rgb(30, 60, 55) 2px 0px 0px 2px;
 }
 
 #tags-panel {
