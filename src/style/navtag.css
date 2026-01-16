@@ -8,7 +8,7 @@
     height: calc(100vh);
     transition: 0.1s;
     background: rgb(43,81,76);
-    border-right: var(--hr);
+    /* border-right: var(--hr); */
     z-index: 4;
     box-shadow: 0 0 2rem rgb(var(--background), 0.6);
 }
@@ -32,6 +32,13 @@
     /* background: linear-gradient(0deg, var(--background-color) 0%, var(--background-color) 5%, transparent); */
 }
 
+#tags-panel .small-tag{
+    border: none;
+}
+
+#tags-panel .small-tag:hover{
+    background-color: rgb(200, 232, 208);
+}
 #tags-panel-tree::before {
         transform: rotate(180deg);
 }

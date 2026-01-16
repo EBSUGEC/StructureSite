@@ -17,7 +17,7 @@
 #header a {
     display: block;
     color: rgb(79,65,147);
-    text-decoration: underline;
+    text-decoration: none;
     text-decoration-color: rgb(var(--main), 0);
     white-space: nowrap;
 }

@@ -4,7 +4,7 @@
 }
 
 h1{
-    color: white;
+    color: var(--main);
     backdrop-filter: blur(2px);
 }
 
