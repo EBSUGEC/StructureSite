@@ -1,9 +1,8 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import * as React from 'react'
-import Calendar from 'react-calendar'
 import { Card } from "../components/card"
 import Layout from '../components/layout'
-import { filterNodes, isDateOnCallendar } from "../helpers"
+import { filterNodes } from "../helpers"
 import { Introduction } from '../components/customisation'
 import Planet from '../images/baniere.jpg'
 
@@ -11,6 +10,7 @@ import LogoSorbonne from '../images/lettres-logo-white.svg'
 import LogoLabo from '../images/LogoLabo.png'
 
 import "../style/accueil.css"
+
 
 const Home = ({ data }) => {
     const nodes = data.allMarkdownRemark.nodes
@@ -60,7 +60,8 @@ export const query = graphql`
   query MyQuery {
     site {
         siteMetadata {
-            title
+            title,
+            googleVerification
         }
     }
     allMarkdownRemark(sort: {fields: {date: DESC}}, filter: {fields: {date: {ne: null}}}, limit: 999) {
@@ -94,3 +95,20 @@ export const query = graphql`
 `
 
 export default Home
+
+export const Head = ({ data }) => {
+    const { title, description, googleVerification } = data.site.siteMetadata
+  
+    return (
+      <>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {googleVerification && (
+          <meta
+            name="google-site-verification"
+            content={googleVerification}
+          />
+        )}
+      </>
+    )
+  }

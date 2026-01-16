@@ -655,3 +655,7 @@ input:focus-visible {
     outline: none;
     border: var(--hr-main);
 }
+
+#title-button-container{
+    color: white
+}

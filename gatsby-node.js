@@ -4,7 +4,6 @@ const fs = require('fs')
 const csv = require('csv-parser');
 const { result } = require('lodash');
 // const thesaurus = require(`./src/data/thesaurus.json`)
-const dict_prettyNames = {};
 
 // ON ENRICHIE LES NODES MARKDOWN AVEC DES FIELDS
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -40,8 +39,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: collection,
     })
 
-    const files = fs.readdirSync(path.dirname(node.fileAbsolutePath)).filter(el => el !== 'index.md')
-    const images = files.filter(el => el.endsWith('.png') || el.endsWith('.jpeg') || el.endsWith('.jpg') || el.endsWith('.webp'))
+    let images = []
+    if(node.frontmatter.image){
+      images = [path.join(path.dirname(node.fileAbsolutePath), node.frontmatter.image)]
+      console.log(images)
+    }
+    else{
+      const files = fs.readdirSync(path.dirname(node.fileAbsolutePath)).filter(el => el !== 'index.md')
+      images = files.filter(el => el.endsWith('.png') || el.endsWith('.jpeg') || el.endsWith('.jpg') || el.endsWith('.webp'))
+    }
     // const sounds = files.filter(el => el.endsWith('.mp3') || el.endsWith('.wav') || el.endsWith('.ogg'))
     
     createNodeField({
@@ -53,6 +59,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
+  const dict_prettyNames = {}
   const { createPage, createRedirect } = actions
 
   ////////////////////////////////////////////////////////////////////////////////

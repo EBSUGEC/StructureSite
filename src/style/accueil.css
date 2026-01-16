@@ -77,7 +77,7 @@ h1#landing-title {
 .landing-block {
     flex: 1 1 30rem;
     width: 100%;
-    max-width: 50rem;
+    max-width: 30rem;
 }
 
 .landing-block.text {

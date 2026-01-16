@@ -1,6 +1,7 @@
 import { Link, graphql } from "gatsby"
 import * as React from 'react'
 import Layout from '../components/layout'
+import Markdown from 'react-markdown'
 import '../style/article.css'
 
 
@@ -28,6 +29,7 @@ const BlogPost = ({ data, children }) => {
                     <header id="article-header">
                         <div className="overlay"> 
                           <h1>{title}</h1>
+                          {author && !date && (<span id="article-meta">Publié par {authorName}</span>)}
                           {author && date && (<span id="article-meta">Publié par {authorName} le {date}</span>)}
                           <button className="button print" onClick={() => { window.print(); }}>&darr; Enregistrer au format pdf</button>
                           {tags && (<div id="tags-container">
@@ -38,7 +40,7 @@ const BlogPost = ({ data, children }) => {
                     </header>
                 <div id="article-container">
                     <article id="article">
-                        {abstract ? <aside><p>{abstract}</p></aside> : ''}
+                        {abstract ? <aside><p><Markdown>{abstract}</Markdown></p></aside> : ''}
                         {
                             sound && (
                                 <audio controls>

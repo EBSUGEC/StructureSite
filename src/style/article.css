@@ -2,6 +2,12 @@
 .body {
     --random-rotate :0deg
 }
+
+h1{
+    color: white;
+    backdrop-filter: blur(2px);
+}
+
 #article{
     text-align: justify;
 }
