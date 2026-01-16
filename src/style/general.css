@@ -613,8 +613,8 @@ a.section-name:hover {
 
 .button:hover,
 .discrete-button:not(.disabled):hover {
-    background-color: var(--hovered-background);
     cursor: pointer;
+    opacity: 75%;
 }
 
 .button {
