@@ -17,6 +17,7 @@ const Layout = ({ children, nodes }) => {
                 siteMetadata {
                     title
                     pages
+                    categories
                 }
             }
             allMarkdownRemark {
@@ -33,9 +34,21 @@ const Layout = ({ children, nodes }) => {
         document.title = data.site.siteMetadata.title
     }, [])
 
+
+
     const pages = data.site.siteMetadata.pages.map(page => {
         const [group, _, name] = page.split('_')
-        return { name: name[0].toUpperCase() + name.slice(1), link: `/${name}/`, group }
+        let fullName = false
+        const categories = data.site.siteMetadata.categories
+        for(let i= 0; i < categories.length; i++){
+            let el = categories[i]
+            if(el === name){
+                fullName = categories[i + 1]
+                break
+            }
+        }
+        fullName = fullName || name[0].toUpperCase() + name.slice(1)        
+        return { name: fullName, link: `/${name}/`, group }
     })
     // create menu
     const menu = []

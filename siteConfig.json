@@ -2,5 +2,8 @@
     "title": "Genre en cours",
     "siteUrl": "https://genre-en-cours.fr",
     "logo": "test.svg",
-    "googleVerification": "a remplacer"
+    "googleVerification": "a remplacer",
+    "categories": [
+        "qui", "Qui sommes nous ? "
+    ]
 }
