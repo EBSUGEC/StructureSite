@@ -41,18 +41,53 @@ const Home = ({ data }) => {
 
 const HomeHeader = ({ nodes }) => {
     const [imageClass, setImageClass] = React.useState("")
-    setTimeout(() => setImageClass('full'), 0)
+    const [contentWord, setContentWord] = React.useState("apprendre")
+    const [fadeClass, setFadeClass] = React.useState("fade-in")
+    const possibleContentWords = ["apprendre", "découvrir", "enseigner", "sensibiliser"]
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            // Déclenche le fondu de sortie
+            setFadeClass("fade-out")
+            
+            // Attend la fin du fondu avant de changer le mot
+            setTimeout(() => {
+                // Choisit un nouveau mot différent du mot actuel
+                const currentIndex = possibleContentWords.indexOf(contentWord)
+                const availableWords = possibleContentWords.filter((_, index) => index !== currentIndex)
+                const newWord = availableWords[Math.floor(Math.random() * availableWords.length)]
+                setContentWord(newWord)
+                
+                // Déclenche le fondu d'entrée
+                setFadeClass("fade-in")
+            }, 300) // Durée du fondu de sortie
+        }, 2000)
+        
+        return () => clearInterval(interval)
+    }, [contentWord])
+    
+    React.useEffect(() => {
+        setTimeout(() => setImageClass('full'), 0)
+    }, [])
+
     return (<header>
         <div className="image-container">
-            <img id="landing-image" src={Planet} style={{ maxWidth: "100%", margin: 0 }} className={imageClass} />
+            {/* <img id="landing-image" src={Planet} style={{ maxWidth: "100%", margin: 0 }} className={imageClass} /> */}
             {/* <div class="gradient-overlay"></div> */}
+            <h1 style={{color: "white"}}>
+                    Un site et un contenu prévus pour{' '}
+                    <span className="rotating-word-container">
+                        <span className={`rotating-word ${fadeClass}`}>
+                            {contentWord}
+                        </span>
+                    </span>
+                </h1>
             <img id="landing-logo" src={LogoLabo} style={{ maxWidth: "100%", margin: 0 }} />
-            <img id="landing-sorbonne" src={LogoSorbonne} style={{ maxWidth: "100%", margin: 0, height: "194px", width: "500px" }} />
+            {/* <img id="landing-sorbonne" src={LogoSorbonne} style={{ maxWidth: "100%", margin: 0, height: "194px", width: "500px" }} /> */}
         </div>
 
-        <div id="landing-blocks-container">
+        {/* <div id="landing-blocks-container">
             <Introduction />
-        </div>
+        </div> */}
     </header>)
 }
 
