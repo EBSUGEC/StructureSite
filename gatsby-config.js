@@ -61,6 +61,17 @@ let config = {
         plugins: [
           // `gatsby-remark-copy-linked-files`,
           {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              showCaptions: ['alt', 'title'],
+              // markdownCaptions: true,
+              // maxWidth: 650
+            },
+          },
+          {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
               ignoreFileExtensions: []

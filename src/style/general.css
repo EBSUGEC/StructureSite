@@ -659,3 +659,10 @@ input:focus-visible {
 #title-button-container{
     color: white
 }
+
+.gatsby-resp-image-figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
