@@ -7,8 +7,8 @@ import Markdown from 'react-markdown'
 
 
 export const Card = ({ postData, toggleTag, selectedTags }) => {
-    const { date, slug, image, collection } = postData.fields
-    const { title, tags, abstract, uuid, prettyName } = postData.frontmatter
+    const { date, slug, image, collection, prettyName } = postData.fields
+    const { title, tags, abstract, uuid } = postData.frontmatter
     const content = abstract ? abstract : postData.excerpt
 
     return (

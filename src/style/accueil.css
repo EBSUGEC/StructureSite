@@ -64,7 +64,7 @@ h1#landing-title {
   height: 50vh; /* S'ajuste à la hauteur de l'image */
   max-height: 200px; /* Correspond à l'image et au logo */
   overflow: hidden; /* Empêche le dépassement du logo et du dégradé */
-  background-color: rgb(245, 131, 0);
+  background-color: rgb(242, 143, 90);
   display: block;
   text-align: center;
   align-content: center;
@@ -230,5 +230,5 @@ abbr {
 #last-posts {
     display: block;
     max-width: var(--max-cards-width);
-    margin: 10rem max(calc((100vw - var(--max-cards-width)) / 2 - 2rem), var(--min-margin)) 1.5rem max(calc((100vw - var(--max-cards-width)) / 2 - 2rem), var(--min-margin));
+    margin: 3rem max(calc((100vw - var(--max-cards-width)) / 2 - 2rem), var(--min-margin)) 1.5rem max(calc((100vw - var(--max-cards-width)) / 2 - 2rem), var(--min-margin));
 }

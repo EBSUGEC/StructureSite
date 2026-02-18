@@ -6,6 +6,9 @@
     padding: 0 var(--min-margin) 3rem var(--min-margin);
 }
 
+#cards-introduction p {
+    text-align: justify;
+  }
 /* Petites cartes */
 
 .small-card {

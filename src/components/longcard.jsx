@@ -5,8 +5,8 @@ import { Tag } from "./layout"
 
 
 export const LongCard = ({ postData, toggleTag, selectedTags }) => {
-    const { date, slug, image, collection } = postData.fields
-    const { title, tags, abstract, sound, uuid, prettyName } = postData.frontmatter
+    const { date, slug, image, collection, prettyName } = postData.fields
+    const { title, tags, abstract, sound, uuid } = postData.frontmatter
 
     return (
         <div className="long-card">

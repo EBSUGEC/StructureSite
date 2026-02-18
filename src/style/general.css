@@ -21,6 +21,8 @@
     --main-color: rgb(79, 65, 147);
     --text-color: rgb(var(--text), 0.9);
     --background-color: rgb(249,246,227);
+    --secondary-color: rgb(242, 143, 90);
+    --third-color: rgb(43,81,76);
 
     /* Variantes des couleurs neutres
         Plus le coefficient à la fin est bas, plus la couleur est distincte du fond.
@@ -71,7 +73,7 @@
     --toc-height: calc(100vh - 12rem);
     --toc-padding: 1rem;
     --ext-margin: max(1rem, 40vw - 42rem);
-    --art-width: 40rem;
+    --art-width: 50rem;
     --meta-margin: 1.2rem;
 
     /* Tableaux */
@@ -86,7 +88,7 @@
 
 ::selection {
     color: var(--background-color);
-    background: var(--main-border-color);
+    background: var(--secondary-color);
 }
 
 .button,

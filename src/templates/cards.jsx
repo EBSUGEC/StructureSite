@@ -55,6 +55,7 @@ export const query = graphql`
             }
             fields {
             collection
+            prettyName
             date(formatString: "DD MMMM, YYYY", locale: "fr")
             slug
             image {

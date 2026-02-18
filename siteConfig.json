@@ -4,6 +4,7 @@
     "logo": "test.svg",
     "googleVerification": "a remplacer",
     "categories": [
-        "qui", "Qui sommes nous ? "
+        "membres", "Qui sommes nous ? ",
+        "astuces", "Astuces pédagogiques "
     ]
 }

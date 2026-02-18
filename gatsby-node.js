@@ -3,8 +3,7 @@ const path = require(`path`)
 const fs = require('fs')
 const csv = require('csv-parser');
 const { result } = require('lodash');
-// const thesaurus = require(`./src/data/thesaurus.json`)
-
+const { createSlug } = require('./src/utils/utils')
 // ON ENRICHIE LES NODES MARKDOWN AVEC DES FIELDS
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
@@ -39,6 +38,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: collection,
     })
 
+    // pour les membres on créé une jolie url même si pas de prettyName
+    // pour ceux ayant déjà un prettyName on le rajoute dans leurs fields
+    if (collection === 'membres' && node.frontmatter.title) {
+      createNodeField({
+        node: node,
+        name: `prettyName`,
+        value: createSlug(node.frontmatter.title),
+      })
+    } else if (node.frontmatter.prettyName) {
+      createNodeField({
+        node: node,
+        name: `prettyName`,
+        value: node.frontmatter.prettyName,
+      })
+    }
+
     let images = []
     if(node.frontmatter.image){
       images = [path.join(path.dirname(node.fileAbsolutePath), node.frontmatter.image)]
@@ -72,6 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
         site {
           siteMetadata {
             pages
+            authors
           }
         }
         allMarkdownRemark(sort: {fields: {date: DESC}}, limit: 999) {
@@ -81,11 +97,11 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
                 date
                 collection
+                prettyName
               }
               frontmatter {
                 title
                 uuid
-                prettyName
               }
             }
           }
@@ -113,55 +129,37 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // Create all pages with the same template, this might change later if we want to do markdown pages with specifics templates
-
   result.data.allMarkdownRemark.edges.forEach((edge, index) => {
     const fields = edge.node.fields;
     const uuid = edge.node.frontmatter.uuid;
-    const prettyName = edge.node.frontmatter.prettyName;
+    const prettyName = fields.prettyName;
+    
+    console.log(prettyName);
 
-    if(fields.slug === ""){
-      return
-    }
+    if(fields.slug === "") return;
+  
+    // Détermine le template selon la collection
+    const isMember = fields.collection === 'membres'; // adapte le nom si besoin
+    const template = isMember ? 'member.jsx' : 'blog-post.jsx';
+    const component = path.resolve(`./src/templates/${template}`);
 
-    createPage({
-      path: `/${uuid}`,
-      component: path.resolve(`./src/templates/blog-post.jsx`),
-      context: {
-        slug: fields.slug,
-        // previous,
-        // next,
-      },
-    })
+    const context = isMember
+    ? { slug: fields.slug, authorName: edge.node.frontmatter.title }
+    : { slug: fields.slug };
+  
+    createPage({ path: `/${uuid}`, component, context });
+  
     if (prettyName) {
       if (prettyName in dict_prettyNames) {
         throw Error(`Pretty name ${prettyName} already exists, clash between ${dict_prettyNames[prettyName]} and ${uuid}`);
-        }
-      dict_prettyNames[prettyName] = uuid
-      createPage({
-          path: `/${prettyName}`,
-          component: path.resolve(`./src/templates/blog-post.jsx`),
-          context: {
-              slug: fields.slug,
-              // previous,
-              // next,
-          },
-      })
-      createPage({
-          path: `/${prettyName}/`.toLowerCase(),
-          component: path.resolve(`./src/templates/blog-post.jsx`),
-          context: {
-              slug: fields.slug,
-              // previous,
-              // next,
-          },
-      })
-
+      }
+      dict_prettyNames[prettyName] = uuid;
+      createPage({ path: `/${prettyName}`, component, context });
+      createPage({ path: `/${prettyName}/`.toLowerCase(), component, context });
     }
-  })
+  });
+
 }
-
-
 
 
 
@@ -177,6 +175,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String,
       date: Date @dateformat
       collection: String
+      prettyName: String
     }
     type Frontmatter {
       tags: [String!]

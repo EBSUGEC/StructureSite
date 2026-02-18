@@ -2,6 +2,7 @@ import { Link, graphql } from "gatsby"
 import * as React from 'react'
 import Layout from '../components/layout'
 import Markdown from 'react-markdown'
+import { createSlug } from "../utils/utils"
 import '../style/article.css'
 
 
@@ -12,25 +13,35 @@ function getRandomIntInclusive(min, max) {
 }
 
 const BlogPost = ({ data, children }) => {
-    const date = data.markdownRemark.fields.date
-    const { author, title, tags, abstract, sound } = data.markdownRemark.frontmatter
-    console.log(author)
-    const authorName = author ? author.join(' & ') : ""
-    // React.useEffect(() => {
-    //   document.querySelector('body').style.setProperty('--random-rotate', `${getRandomIntInclusive(20, 340)}deg`) 
-    // }, []);
-    return (
-        <Layout>
-            <main>
-                {data.markdownRemark.tableOfContents && (<div id="toc-container">
-                    <nav dangerouslySetInnerHTML={{ __html: data.markdownRemark.tableOfContents }} />
-                </div>)
-                }
-                    <header id="article-header">
-                        <div className="overlay"> 
-                          <h1>{title}</h1>
-                          {author && !date && (<span id="article-meta">Publié par {authorName}</span>)}
-                          {author && date && (<span id="article-meta">Publié par {authorName} le {date}</span>)}
+  const date = data.markdownRemark.fields.date
+  const { author, title, tags, abstract, sound } = data.markdownRemark.frontmatter
+  console.log(author)
+  
+  // Fonction utilitaire pour créer un slug
+
+  
+  return (
+      <Layout>
+          <main>
+              {data.markdownRemark.tableOfContents && (<div id="toc-container">
+                  <nav dangerouslySetInnerHTML={{ __html: data.markdownRemark.tableOfContents }} />
+              </div>)
+              }
+                  <header id="article-header">
+                      <div className="overlay"> 
+                        <h1>{title}</h1>
+                        {author && (
+                          <span id="article-meta">
+                            Publié par {author.map((authorName, index) => (
+                              <span key={index}>
+                                <a href={`/${createSlug(authorName)}`}>{authorName}</a>
+                                {index < author.length - 1 && ' & '}
+                              </span>
+                            ))
+                            }
+                            {date && ` le ${date}`}
+                          </span>
+                        )}
                           <button className="button print" onClick={() => { window.print(); }}>&darr; Enregistrer au format pdf</button>
                           {tags && (<div id="tags-container">
                               {tags ? tags.map((el, i) => <a className="tag" key={i} >{el}</a>) : ''}

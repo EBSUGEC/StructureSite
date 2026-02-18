@@ -4,8 +4,9 @@
 }
 
 h1{
-    color: var(--main);
+    color: var(--background-color);
     backdrop-filter: blur(2px);
+    font-weight: 300;
 }
 
 #article{
@@ -20,6 +21,7 @@ h1{
     background-position-x: center;
     background-position-y: calc(36% + 1vw);
     text-align: center;
+    background-color: var(--secondary-color)
 }
 
 #article-container {
@@ -71,15 +73,14 @@ button.print {
     width: var(--toc-width);
     margin-top: 10rem;
     font-size: 0.9rem;
-    background-color: var(--background-color);
-    border: var(--hr);
+    background-color: var(--third-color);
     border-radius: var(--small-border-radius);
     padding: var(--toc-padding);
     list-style: none;
     color: var(--disabled-color);
     z-index: 1;
-    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.31); 
-    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.31);
+    -webkit-box-shadow: rgb(30, 60, 55) 0px 5px 0px 0px;
+    box-shadow: rgb(30, 60, 55) 0px 5px 0px 0px;
 }
 
 #toc-container>nav::before,
@@ -90,7 +91,6 @@ button.print {
     position: absolute;
     pointer-events: none;
     left: 0rem;
-    background: linear-gradient(0deg, var(--background-color) 0%, var(--background-color) 5%, transparent);
 }
 
 #toc-container>nav::before {
@@ -143,7 +143,7 @@ button.print {
 
 #toc-container a {
     transition: 0.1s;
-    color: var(--disabled-color);
+    color: var(--background-color);
     text-decoration-color: var(--hr-color);
 }
 

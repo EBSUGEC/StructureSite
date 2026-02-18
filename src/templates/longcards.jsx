@@ -57,6 +57,7 @@ export const query = graphql`
             date(formatString: "DD MMMM, YYYY", locale: "fr")
             slug
             collection
+            prettyName
             image {
                     childImageSharp {
                         gatsbyImageData(placeholder: TRACED_SVG, width: 400)

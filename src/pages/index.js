@@ -43,7 +43,7 @@ const HomeHeader = ({ nodes }) => {
     const [imageClass, setImageClass] = React.useState("")
     const [contentWord, setContentWord] = React.useState("apprendre")
     const [fadeClass, setFadeClass] = React.useState("fade-in")
-    const possibleContentWords = ["apprendre", "découvrir", "enseigner", "sensibiliser"]
+    const possibleContentWords = ["bricoler ensemble", "se former", "s'informer", "transformer nos pratiques"]
     React.useEffect(() => {
         const interval = setInterval(() => {
             // Déclenche le fondu de sortie
@@ -74,7 +74,7 @@ const HomeHeader = ({ nodes }) => {
             {/* <img id="landing-image" src={Planet} style={{ maxWidth: "100%", margin: 0 }} className={imageClass} /> */}
             {/* <div class="gradient-overlay"></div> */}
             <h1 style={{color: "white"}}>
-                    Un site et un contenu prévus pour{' '}
+                    Outils et ressources pour {' '}
                     <span className="rotating-word-container">
                         <span className={`rotating-word ${fadeClass}`}>
                             {contentWord}
