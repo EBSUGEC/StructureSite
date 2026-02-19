@@ -7,6 +7,8 @@ h1{
     color: var(--background-color);
     backdrop-filter: blur(2px);
     font-weight: 300;
+    max-width: 70vw;
+    margin: auto;
 }
 
 #article{
