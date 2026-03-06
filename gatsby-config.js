@@ -1,29 +1,29 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require("fs");
+const path = require("path");
 
-const DIR = './src/data'
-const MEMBERS_DIR = './src/data/3_cards_membres'
+const DIR = "./src/data";
+const MEMBERS_DIR = "./src/data/3_cards_membres";
 
 const folders = fs.readdirSync(DIR);
 const members = fs.readdirSync(MEMBERS_DIR);
 
-const siteConfig = JSON.parse(fs.readFileSync('siteConfig.json', 'utf8'));
-
+const siteConfig = JSON.parse(fs.readFileSync("siteConfig.json", "utf8"));
 
 let config = {
   siteMetadata: {
     ...siteConfig,
     authors: [],
-    pages: []
+    pages: [],
   },
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-plugin-image",
-    "gatsby-plugin-sitemap", {
-      resolve: 'gatsby-plugin-manifest',
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-manifest",
       options: {
-        "icon": "src/images/" + siteConfig['logo']
-      }
+        icon: "src/images/" + siteConfig["logo"],
+      },
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -36,10 +36,10 @@ let config = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              showCaptions: ['alt', 'title'],
+              maxWidth: 650,
+              loading: "lazy", // garde le lazy loading natif du navigateur
+              disableBgImage: true, // supprime le padding-bottom et l'image de fond base64
+              showCaptions: ["alt", "title"],
               // markdownCaptions: true,
               // maxWidth: 650
             },
@@ -47,8 +47,8 @@ let config = {
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              ignoreFileExtensions: []
-            }
+              ignoreFileExtensions: [],
+            },
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
@@ -58,45 +58,54 @@ let config = {
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-smartypants`,
-          `gatsby-remark-autolink-headers`
+          `gatsby-remark-autolink-headers`,
         ],
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
-        "name": "images",
-        "path": "./src/images/"
+        name: "images",
+        path: "./src/images/",
       },
-      __key: "images"
-    }
+      __key: "images",
+    },
     // {
     //   resolve: `gatsby-transformer-csv`,
     // }
   ],
 };
 
-console.log(folders)
-folders.forEach(folder => {
-  if(!folder.startsWith('_') && fs.statSync(path.join(DIR, folder)).isDirectory() && folder !== '.git' && folder !== ".github"){
+console.log(folders);
+folders.forEach((folder) => {
+  if (
+    !folder.startsWith("_") &&
+    fs.statSync(path.join(DIR, folder)).isDirectory() &&
+    folder !== ".git" &&
+    folder !== ".github"
+  ) {
     config.plugins.push({
-        resolve: 'gatsby-source-filesystem', 
-        options: {
-          name: folder.split('_')[2], 
-          path: path.join(DIR, folder)
-        }, 
-        // ignore: [`**/*.csv`, '*.csv', '**\\*.csv', '**\\*\.csv', '**\*.csv', path.join(DIR, folder, '2024-02-08_Tutoriel_tableau_Public', 'Fichier_Atelier.csv')]
-      })
-    config.siteMetadata.pages.push(folder)
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: folder.split("_")[2],
+        path: path.join(DIR, folder),
+      },
+      // ignore: [`**/*.csv`, '*.csv', '**\\*.csv', '**\\*\.csv', '**\*.csv', path.join(DIR, folder, '2024-02-08_Tutoriel_tableau_Public', 'Fichier_Atelier.csv')]
+    });
+    config.siteMetadata.pages.push(folder);
   }
-})
+});
 
-if(members){
-  members.forEach(member => {
-    if(fs.statSync(path.join(MEMBERS_DIR, member)).isDirectory() && member !== '.git' && member !== ".github"){
-        config.siteMetadata.authors.push(member)
-      }
-  })
+if (members) {
+  members.forEach((member) => {
+    if (
+      fs.statSync(path.join(MEMBERS_DIR, member)).isDirectory() &&
+      member !== ".git" &&
+      member !== ".github"
+    ) {
+      config.siteMetadata.authors.push(member);
+    }
+  });
 }
 
-module.exports = config
+module.exports = config;
