@@ -37,7 +37,7 @@ export const Footer = () => (
     <div className="footer-block">
       <p>
         Pour nous contacter :{" "}
-        <a href="mailto:philomel.genre@gmail.com">philomel.genre@gmail.com</a>
+        <a href="mailto:genre.en.cours@gmail.com">genre.en.cours@gmail.com</a>
       </p>
     </div>
     <a href="https://lettres.sorbonne-universite.fr/" style={{ width: "50vw" }}>
