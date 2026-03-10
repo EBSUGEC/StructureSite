@@ -1,9 +1,9 @@
 /* Variables générales */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('https: //rsms.me/inter/inter.css');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https: //rsms.me/inter/inter.css");
 
 :root {
     /* Couleur de mise en exergue */
@@ -20,25 +20,45 @@
     --text: var(--text-num), var(--text-num), var(--text-num);
     --main-color: rgb(79, 65, 147);
     --text-color: rgb(var(--text), 0.9);
-    --background-color: rgb(249,246,227);
+    --background-color: rgb(249, 246, 227);
     --secondary-color: rgb(242, 143, 90);
-    --third-color: rgb(43,81,76);
+    --third-color: rgb(43, 81, 76);
 
     /* Variantes des couleurs neutres
         Plus le coefficient à la fin est bas, plus la couleur est distincte du fond.
         Les formules sont complexes pour ne pas avoir des problèmes liés à la transparence */
-    --bquote-num: calc(var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.35);
-    --disabled-num: calc(var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.47);
+    --bquote-num: calc(
+        var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.35
+    );
+    --disabled-num: calc(
+        var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.47
+    );
     --hr-num: calc(var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.8);
-    --li-bg-num: calc(var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.93);
-    --di-bg-num: calc(var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.97);
+    --li-bg-num: calc(
+        var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.93
+    );
+    --di-bg-num: calc(
+        var(--text-num) + (var(--bg-num) - var(--text-num)) * 0.97
+    );
 
     --bquote: rgb(var(--bquote-num), var(--bquote-num), var(--bquote-num));
-    --disabled-color: rgb(var(--disabled-num), var(--disabled-num), var(--disabled-num));
+    --disabled-color: rgb(
+        var(--disabled-num),
+        var(--disabled-num),
+        var(--disabled-num)
+    );
     --hr-color: rgb(var(--hr-num), var(--hr-num), var(--hr-num));
     --intense-text-color: rgb(var(--text));
-    --light-background: rgb(var(--li-bg-num), var(--li-bg-num), var(--li-bg-num));
-    --dimmed-background: rgb(var(--di-bg-num), var(--di-bg-num), var(--di-bg-num));
+    --light-background: rgb(
+        var(--li-bg-num),
+        var(--li-bg-num),
+        var(--li-bg-num)
+    );
+    --dimmed-background: rgb(
+        var(--di-bg-num),
+        var(--di-bg-num),
+        var(--di-bg-num)
+    );
 
     /* Variantes de couleur principale du site */
     --hovered-background: rgb(var(--main), 0.3);
@@ -66,7 +86,9 @@
     --card-padding: 1rem;
     --max-cards-width: 80rem;
     --card-title-font-size: 1.35rem;
-    --small-tags-container-height: calc(0.8rem + (2 * 0.4rem) + (2 * var(--border-width)));
+    --small-tags-container-height: calc(
+        0.8rem + (2 * 0.4rem) + (2 * var(--border-width))
+    );
 
     /* Articles */
     --toc-width: clamp(14rem, 20vw, 22rem);
@@ -115,7 +137,6 @@ html {
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {
-
     /* Taille de typo pour téléphone */
     html {
         font-size: 4vw;
@@ -206,12 +227,12 @@ ol {
     padding-left: 0;
 }
 
-ul>li,
-ol>li {
+ul > li,
+ol > li {
     margin-left: 1.5rem;
 }
 
-ul>li {
+ul > li {
     list-style-type: disc;
 }
 
@@ -220,7 +241,7 @@ ul>li {
 blockquote::before {
     position: relative;
     display: block;
-    content: '“';
+    content: "“";
     font-size: 6rem;
     font-family: "IBM Plex Serif";
     left: -3.5rem;
@@ -244,11 +265,13 @@ blockquote p {
 /* Code */
 
 code {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: "IBM Plex Mono", monospace;
     color: var(--code);
     font-size: 0.85em;
     background: var(--light-background);
-    box-shadow: 0.2rem 0 0 var(--light-background), -0.2rem 0 0 var(--light-background);
+    box-shadow:
+        0.2rem 0 0 var(--light-background),
+        -0.2rem 0 0 var(--light-background);
     padding: 0.1rem 0;
     border-radius: var(--small-border-radius);
 }
@@ -261,7 +284,7 @@ pre {
     white-space: pre-wrap;
 }
 
-pre>code {
+pre > code {
     background: none;
     box-shadow: none;
     color: var(--code);
@@ -275,7 +298,7 @@ strong {
 }
 
 em {
-    font-family: 'IBM Plex Serif';
+    font-family: "IBM Plex Serif";
     font-style: italic;
 }
 
@@ -289,10 +312,9 @@ a:not([href^="/"]) {
     text-decoration: underline;
     text-underline-offset: 0.25em;
     text-decoration-thickness: 0.1em;
-    text-decoration-color: rgb(79,65,147, 0.4);
+    text-decoration-color: rgb(79, 65, 147, 0.4);
     text-wrap: wrap;
 }
-
 
 a:not([href^="../"]):hover,
 a:not([href^="./"]):hover,
@@ -309,7 +331,9 @@ a:not([class]):not([id])[href^="/"] {
     font-family: "IBM Plex Sans";
     color: var(--main-color);
     background: var(--to-hover-background);
-    box-shadow: 0.2rem 0 0 var(--to-hover-background), -0.2rem 0 0 var(--to-hover-background);
+    box-shadow:
+        0.2rem 0 0 var(--to-hover-background),
+        -0.2rem 0 0 var(--to-hover-background);
     border-radius: var(--small-border-radius);
     transition: var(--transition);
 }
@@ -326,7 +350,9 @@ a:not([class]):not([id])[href^="./"]:hover,
 a:not([class]):not([id])[href^="/"]:hover {
     text-decoration: none;
     background: var(--hovered-background);
-    box-shadow: 0.2rem 0 0 var(--hovered-background), -0.2rem 0 0 var(--hovered-background);
+    box-shadow:
+        0.2rem 0 0 var(--hovered-background),
+        -0.2rem 0 0 var(--hovered-background);
 }
 
 /* Tags */
@@ -370,13 +396,13 @@ a:not([class]):not([id])[href^="/"]:hover {
     border: solid var(--background-color) 1px;
 }
 
-.small-tag.phases{
+.small-tag.phases {
     --phases-color: #d9d9d9;
     color: var(--phases-color);
     border-color: var(--phases-color);
 }
 
-.small-tag.data{
+.small-tag.data {
     --data-color: #cdace7;
     color: var(--data-color);
     border-color: var(--data-color);
@@ -395,16 +421,16 @@ aside {
     border-left: 0.5rem solid rgb(var(--main), 0.5);
 }
 
-aside>*:only-child {
+aside > *:only-child {
     margin-top: 0rem;
     margin-bottom: 0rem;
 }
 
-aside>*:first-child {
+aside > *:first-child {
     margin-top: 0rem;
 }
 
-aside>*:last-child {
+aside > *:last-child {
     margin-bottom: 0rem;
 }
 
@@ -471,7 +497,12 @@ table tr th:last-child {
 
 .small-card:hover .text-sample:before,
 .long-card:hover .text-sample:before {
-    background: linear-gradient(0deg, var(--light-background) 0%, var(--light-background) 40%, transparent);
+    background: linear-gradient(
+        0deg,
+        var(--light-background) 0%,
+        var(--light-background) 40%,
+        transparent
+    );
 }
 
 #cards-container {
@@ -513,14 +544,20 @@ table tr th:last-child {
 }
 
 .text-sample::before {
-    content: '';
+    content: "";
     width: 100%;
     height: calc(0.5rem + var(--card-padding));
     position: absolute;
-    border-radius: 0rem 0rem var(--medium-border-radius) var(--medium-border-radius);
+    border-radius: 0rem 0rem var(--medium-border-radius)
+        var(--medium-border-radius);
     right: 0rem;
     bottom: 0rem;
-    background: linear-gradient(0deg, var(--background-color) 0%, var(--background-color) 40%, transparent);
+    background: linear-gradient(
+        0deg,
+        var(--background-color) 0%,
+        var(--background-color) 40%,
+        transparent
+    );
 }
 
 .small-tags-container {
@@ -535,12 +572,17 @@ table tr th:last-child {
 }
 
 .small-tags-container::after {
-    content: '';
+    content: "";
     z-index: 3;
     height: var(--small-tags-container-height);
     position: absolute;
     pointer-events: none;
-    background: linear-gradient(90deg, var(--background-color) 0%, var(--background-color) 5%, transparent);
+    background: linear-gradient(
+        90deg,
+        var(--background-color) 0%,
+        var(--background-color) 5%,
+        transparent
+    );
     width: 0.3rem;
     right: var(--card-padding);
     transform: rotate(180deg);
@@ -548,21 +590,21 @@ table tr th:last-child {
 
 .small-card:hover .small-tags-container::after,
 .long-card:hover .small-tags-container::after {
-    background: linear-gradient(90deg, var(--light-background) 0%, var(--light-background) 5%, transparent);
+    background: linear-gradient(
+        90deg,
+        var(--light-background) 0%,
+        var(--light-background) 5%,
+        transparent
+    );
 }
 
 .small-tags-container::-webkit-scrollbar {
     display: none !important;
 }
 
-.small-tags-container>.small-tag {
+.small-tags-container > .small-tag {
     z-index: 2;
     white-space: nowrap;
-}
-
-.image-card {
-    object-fit: cover;
-    background-color: var(--light-background);
 }
 
 .card-details {
@@ -658,8 +700,8 @@ input:focus-visible {
     border: var(--hr-main);
 }
 
-#title-button-container{
-    color: white
+#title-button-container {
+    color: white;
 }
 
 .gatsby-resp-image-figcaption {

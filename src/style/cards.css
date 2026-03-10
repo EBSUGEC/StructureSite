@@ -8,7 +8,7 @@
 
 #cards-introduction p {
     text-align: justify;
-  }
+}
 /* Petites cartes */
 
 .small-card {
@@ -24,11 +24,38 @@
 }
 
 .small-card .image-card {
-    border-radius: calc(var(--medium-border-radius) - var(--border-width)) calc(var(--medium-border-radius) - var(--border-width)) 0 0;
+    border-radius: calc(var(--medium-border-radius) - var(--border-width))
+        calc(var(--medium-border-radius) - var(--border-width)) 0 0;
     min-width: calc(100% + 2 * var(--card-padding) + 2 * var(--border-width));
     margin-left: calc(0rem - var(--card-padding) - var(--border-width));
     margin-top: calc(0rem - var(--border-width));
     margin-bottom: var(--in-card-margin);
     height: 11rem;
-    transition: 0.1s ease-in-out !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-card img {
+    margin: 0 !important;
+}
+
+.small-card [data-gatsby-image-wrapper] > div:first-child img {
+    display: none !important;
+}
+
+.small-card [data-gatsby-image-wrapper] > div:first-child {
+    max-width: 100% !important;
+    height: 11rem !important;
+}
+
+.small-card [data-gatsby-image-wrapper] {
+    height: 11rem !important;
+}
+
+.small-card [data-main-image] {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
